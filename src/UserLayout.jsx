@@ -21,7 +21,6 @@ import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import PasswordReset from "./components/PasswordReset/PasswordReset";
 import BookingDashboard from "./Pages/BookingDashboard/BookingDashboard";
 import TrackRide from "./Pages/TrackRide/TrackRide";
-import UserSocketProvider from "./Provider/UserSocketProvider";
 
 import { 
   selectUser, 

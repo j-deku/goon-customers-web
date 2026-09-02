@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // UserSocketProvider.jsx
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
