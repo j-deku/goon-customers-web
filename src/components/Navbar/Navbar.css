@@ -1,0 +1,36 @@
+.navbar{
+    background-color: #2C3E50;
+    z-index: 100;
+    width: 100%;
+    transition: background-color 0.5s ease, border-radius 0.5s ease, border-bottom 0.5s ease, padding-bottom 0.5s ease;
+}
+.scroll-active{
+    background-color:  rgba(10, 50, 63, 80);
+    border-bottom: 2px solid  rgb(23, 140, 179);
+    border-radius:0 0 5px 5px;
+}
+.scroll-inactive{
+    border-bottom: none;
+}
+.hamburger .MenuIcon{
+    display: none;
+}
+.logo{
+    cursor: pointer;
+    margin-left: 10px -20px;
+    font-size: 35px;
+    font-family: 'Poppins', arial;
+    font-weight: bolder;
+    color:#2C3E50;
+    padding: 10px;
+}
+.navbar button:hover{
+    background-color: #49557e;
+}
+
+.navbar-menu .active{
+    padding: 2px;
+    border-bottom: 2px solid #49557e;
+    border-radius: 7px;
+    transition: 0.3s;
+}

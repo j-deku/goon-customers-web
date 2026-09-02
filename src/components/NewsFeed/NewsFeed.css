@@ -1,0 +1,30 @@
+.newsFeed {
+  max-width: 700px;
+  margin: 10rem auto;
+  padding: 1.5rem;
+  background-color: #fafafa;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.newsFeedHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.feedContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.feedCard.unread {
+  border-left: 4px solid #1976d2;
+  background: #e3f2fd;
+}
+
+.feedCard.read {
+  border-left: 4px solid transparent;
+  background: #ffffff;
+}

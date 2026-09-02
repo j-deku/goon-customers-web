@@ -1,0 +1,187 @@
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light {
+  background-color: rgb(250, 250, 233);
+  color: #171717;
+}
+
+body.dark {
+  background-color: #171717;
+  color: white;
+}
+
+.toggleTheme .themeButton {
+  background-color: #171717;
+  padding: 10px 12px;
+  border-radius: 50%;
+  border: none;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+body.dark .toggleTheme .themeButton{
+  color: white;
+}
+body.light .toggleTheme .themeButton{
+  background-color:transparent;
+  outline: 1px solid gray;
+}
+body.dark p {
+  color: whitesmoke;
+  font-family: "poppins", sans-serif;
+}
+body.dark h2 {
+  color: whitesmoke;
+  font-family: "poppins", sans-serif;
+}
+body.dark h1 {
+  color: whitesmoke;
+  font-family: "poppins", sans-serif;
+}
+
+
+/*contents*/
+body.dark.navbar-menu Link,
+ul a {
+  &:hover {
+    background-color: rgb(128, 128, 128, 0.1);
+    transition: all 0.3s;
+  }
+}
+body.dark .explore-menu {
+  background-color: rgb(62, 69, 82);
+  padding-left: 30px;
+  border: 1px solid gray;
+  transition: background-color 0.5s ease;
+  box-shadow: none;
+}
+body.dark .card1 {
+  border: 1px solid gray;
+  box-shadow: none;
+  color: #fff;
+  background-color: transparent;
+}
+
+
+/*RideLandingContent*/
+body.dark .benefit-card__body p{
+  color:#171717;
+}
+
+body.dark .design-item-description {
+  color: whitesmoke;
+}
+body.dark .explore-menu h1 {
+  color: white;
+}
+body.dark .design-item-counter {
+  color: #171717;
+}
+body.dark .navbar {
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s;
+  transition: background-color 0.5s ease, border-bottom 0.5s ease,
+    padding-bottom 0.5s ease;
+  & .navbar-profile-dropdown {
+    color: black;
+  }
+  & .MenuIcon {
+    color: #e1e0e0;
+  }
+}
+body.dark .scroll-active {
+  background-color: #171717;
+  border-bottom: 2px solid #ccc;
+}
+body.dark .scroll-inactive {
+  background-color: #171717;
+  border-bottom: none;
+}
+
+body.dark .cart-title {
+  color: whitesmoke;
+}
+body.dark .searchDiv {
+  box-shadow: none;
+}
+
+body.dark .searchDiv input {
+  color: black;
+}
+body.dark .container3 b {
+  color: whitesmoke;
+}
+body.dark .container4 b:nth-of-type(1) {
+  color: whitesmoke;
+}
+body.dark .container4 b:first-child {
+  color: rgba(21, 98, 175, 0.8);
+}
+body.dark .container4 p {
+  color: #333;
+}
+body.dark .container4 p button {
+  background-color: rgba(21, 98, 175);
+  color: white;
+  outline: 1px solid white;
+}
+body.dark .car-show{
+  background-color:transparent;
+  border: 1px solid gray;
+  border-left: none;
+  border-top: none;
+  border-bottom: none;
+}
+body.dark .car-show-list .car-show p {
+  color: whitesmoke;
+}
+body.dark .policy p {
+  color: #333;
+}
+  body.dark .container4 p{
+    background-color: #171717;
+    color: inherit;
+  }
+  body.dark .containerBg .container5{
+    background-color: #171717;
+  }
+    body.dark .containerBg2 .container5_last{
+    background-color: #171717;
+  }
+body.dark .landing-description{
+  background-color: #171717;
+}
+body.light .description-divider{
+  display: none;
+}
+@media (max-width: 750px) {
+  body.dark .hamburger img {
+    display: block;
+    width: 30px;
+    height: 25px;
+    left: 0;
+    -webkit-user-select: none;
+    user-select: none;
+    margin-left: 20px;
+    cursor: pointer;
+    border-radius: 1px;
+    background-color: #ccc;
+  }
+  body.dark .container4 p{
+    background-color: transparent;
+    color: inherit;
+  }
+    body.light .container4 b{
+    background-color: transparent;
+    color: #333;
+  }
+  body.dark .car-show{
+  background-color:transparent;
+  border: 1px solid gray;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+}
+}

@@ -1,0 +1,564 @@
+.last-partner {
+  width: 100%;
+
+  margin: 120px auto 140px;
+
+  padding: 0 30px;
+
+  box-sizing: border-box;
+
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   MAIN VISUAL
+========================================================= */
+
+.last-partner__visual {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 1250px;
+
+  height: 650px;
+
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  border-radius: 32px;
+
+  background: #15191c;
+
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.last-partner__image {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  filter: saturate(0.75);
+
+  transform: scale(1.01);
+
+  z-index: -3;
+}
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.last-partner__overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -2;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 10, 12, 0.92) 0%,
+      rgba(5, 10, 12, 0.76) 35%,
+      rgba(5, 10, 12, 0.28) 70%,
+      rgba(5, 10, 12, 0.05) 100%
+    );
+}
+
+
+/* =========================================================
+   TOP LABEL
+========================================================= */
+
+.last-partner__top-label {
+  position: absolute;
+
+  top: 30px;
+
+  left: 35px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+}
+
+.last-partner__dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #6ec5dd;
+
+  box-shadow:
+    0 0 12px rgba(110, 197, 221, 0.7);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.last-partner__content {
+  position: absolute;
+
+  left: 50px;
+
+  top: 50%;
+
+  width: min(530px, 48%);
+
+  transform: translateY(-50%);
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.last-partner__icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  margin-bottom: 22px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  border-radius: 13px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  color: #82c9dc;
+
+  backdrop-filter: blur(12px);
+}
+
+.last-partner__icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.last-partner__eyebrow {
+  display: block;
+
+  margin-bottom: 13px;
+
+  color: #78c4d9;
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.last-partner__content h2 {
+  margin: 0;
+
+  color: white;
+
+  font-size: clamp(45px, 5vw, 70px);
+
+  line-height: 0.92;
+
+  letter-spacing: -0.07em;
+
+  font-weight: 750;
+}
+
+.last-partner__content h2 em {
+  color: rgba(255, 255, 255, 0.42);
+
+  font-style: normal;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.last-partner__content > p {
+  max-width: 480px;
+
+  margin: 25px 0 0;
+
+  color: rgba(255, 255, 255, 0.64);
+
+  font-size: 12px;
+
+  line-height: 1.85;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.last-partner__features {
+  display: flex;
+
+  gap: 30px;
+
+  margin-top: 25px;
+}
+
+.last-partner__features > div {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+}
+
+.last-partner__features svg {
+  flex-shrink: 0;
+
+  margin-top: 3px;
+
+  color: #79c6dc;
+
+  font-size: 11px;
+}
+
+.last-partner__features span {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 8px;
+
+  line-height: 1.4;
+}
+
+.last-partner__features strong {
+  color: rgba(255, 255, 255, 0.85);
+
+  font-size: 9px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.last-partner__actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+.last-partner__primary,
+.last-partner__secondary {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  min-height: 45px;
+
+  padding: 0 20px;
+
+  border-radius: 999px;
+
+  font-family: inherit;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.last-partner__primary {
+  border: none;
+
+  background: white;
+
+  color: #15191c;
+}
+
+.last-partner__primary svg {
+  font-size: 8px;
+}
+
+.last-partner__primary:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.last-partner__secondary {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  color: white;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  backdrop-filter: blur(10px);
+}
+
+.last-partner__secondary:hover {
+  transform: translateY(-3px);
+
+  background: rgba(255, 255, 255, 0.12);
+}
+
+
+/* =========================================================
+   BOTTOM BRAND
+========================================================= */
+
+.last-partner__bottom {
+  position: absolute;
+
+  left: 35px;
+  right: 35px;
+  bottom: 25px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  padding-top: 15px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+  color: rgba(255, 255, 255, 0.35);
+
+  font-size: 7px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .last-partner {
+    padding: 0 20px;
+  }
+
+  .last-partner__visual {
+    height: 650px;
+  }
+
+  .last-partner__content {
+    left: 35px;
+
+    width: 60%;
+  }
+
+  .last-partner__content h2 {
+    font-size: 55px;
+  }
+
+  .last-partner__overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(5, 10, 12, 0.94) 0%,
+        rgba(5, 10, 12, 0.72) 55%,
+        rgba(5, 10, 12, 0.25) 100%
+      );
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .last-partner {
+    margin: 80px auto 90px;
+
+    padding: 0 15px;
+  }
+
+  .last-partner__visual {
+    height: auto;
+
+    min-height: 700px;
+
+    border-radius: 24px;
+  }
+
+  .last-partner__image {
+    object-position: 62% center;
+  }
+
+  .last-partner__overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(5, 10, 12, 0.3) 0%,
+        rgba(5, 10, 12, 0.72) 35%,
+        rgba(5, 10, 12, 0.97) 70%,
+        rgba(5, 10, 12, 1) 100%
+      );
+  }
+
+  .last-partner__top-label {
+    top: 20px;
+
+    left: 20px;
+  }
+
+  .last-partner__content {
+    position: relative;
+
+    top: auto;
+    left: auto;
+
+    width: auto;
+
+    transform: none;
+
+    padding: 260px 22px 90px;
+  }
+
+  .last-partner__icon {
+    margin-bottom: 18px;
+  }
+
+  .last-partner__content h2 {
+    font-size: 47px;
+
+    line-height: 0.94;
+  }
+
+  .last-partner__content > p {
+    margin-top: 20px;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+  }
+
+  .last-partner__features {
+    flex-direction: column;
+
+    gap: 15px;
+
+    margin-top: 22px;
+  }
+
+  .last-partner__actions {
+    align-items: stretch;
+
+    flex-direction: column;
+
+    margin-top: 25px;
+  }
+
+  .last-partner__primary,
+  .last-partner__secondary {
+    width: 100%;
+
+    min-height: 48px;
+  }
+
+  .last-partner__bottom {
+    left: 22px;
+    right: 22px;
+
+    bottom: 20px;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+  .last-partner__content {
+    padding-top: 230px;
+  }
+
+  .last-partner__content h2 {
+    font-size: 40px;
+  }
+
+  .last-partner__content > p {
+    font-size: 10px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .last-partner__primary,
+  .last-partner__secondary {
+    transition: none;
+  }
+}
