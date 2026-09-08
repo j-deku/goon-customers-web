@@ -81,7 +81,7 @@ const getImageUrl = (url) => {
   return `${API_BASE_URL.replace(/\/$/, "")}/${url.replace(/^\//, "")}`;
 };
 
-
+ 
 /* =========================================================
    MAP MARKERS
 ========================================================= */
@@ -518,75 +518,6 @@ const DriverMarker = ({
   );
 };
 
-
-/* =========================================================
-   AMBIENT FOOTER — brand + route summary + live-driver count +
-   trust badge, in one glass bar. Replaces the plainer
-   MapFooterStatus. Shown only when no driver is selected;
-   DriverInfoCard takes over the same visual "slot" (bottom-center)
-   when one is tapped.
-========================================================= */
-
-const PremiumMapFooter = ({ routeInfo, driverCount, hasRoute }) => (
-  <div className="premium-map-footer">
-    <div className="premium-map-footer__inner">
-
-      <div className="premium-map-footer__brand">
-        <div className="premium-map-footer__brand-mark">G</div>
-        <div>
-          <Typography className="premium-map-footer__title">GoOn</Typography>
-          <Typography className="premium-map-footer__subtitle">
-            Verified rides, tracked live
-          </Typography>
-        </div>
-      </div>
-
-      <div className="premium-map-footer__divider" />
-
-      <div className="premium-map-footer__item">
-        <div className="premium-map-footer__status-icon">
-          <MdRoute size={14} />
-        </div>
-        <div>
-          <Typography className="premium-map-footer__item-label">ROUTE</Typography>
-          <Typography className="premium-map-footer__item-value">
-            {routeInfo
-              ? `${routeInfo.distanceText} · ${routeInfo.durationText}`
-              : "Set pickup & destination"}
-          </Typography>
-        </div>
-      </div>
-
-      <div className="premium-map-footer__divider" />
-
-      <div className="premium-map-footer__item">
-        <span className="premium-map-footer__live-dot" />
-        <div>
-          <Typography className="premium-map-footer__item-label">LIVE DRIVERS</Typography>
-          <Typography className="premium-map-footer__item-value">
-            {driverCount > 0
-              ? `${driverCount} nearby on this route`
-              : hasRoute
-              ? "None live yet"
-              : "Awaiting your route"}
-          </Typography>
-        </div>
-      </div>
-
-      <div className="premium-map-footer__divider" />
-
-      <div className="premium-map-footer__trust">
-        <div className="premium-map-footer__shield">
-          <MdVerified size={15} />
-        </div>
-        <Typography className="premium-map-footer__item-value">
-          Verified &amp; insured
-        </Typography>
-      </div>
-
-    </div>
-  </div>
-);
 
 const DriverInfoCard = ({ driver, onClose }) => {
   if (!driver) return null;
@@ -1278,13 +1209,7 @@ const SearchAvailable = () => {
               onClose={() => setSelectedDriverId(null)}
             />
           </Box>
-        ) : (
-          <PremiumMapFooter
-            routeInfo={routeInfo}
-            driverCount={drivers.length}
-            hasRoute={!!(pickupText && destinationText)}
-          />
-        )}
+        ) : (<></>)}
 
         <MapLegalFooter />
 

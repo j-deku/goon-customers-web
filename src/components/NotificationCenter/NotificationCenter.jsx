@@ -30,7 +30,6 @@ const NotificationCenter = () => {
   const isMobile = useMediaQuery('(max-width:768px)');
   const audioRef = useRef(null);
 
-
       // Initialize notification sound
       useEffect(() => {
         audioRef.current = new Audio('/sounds/smooth-notify.mp3'); // Add notification sound to public folder
@@ -45,7 +44,7 @@ const NotificationCenter = () => {
       return;
     }
     try {
-      const response = await axiosInstance.get(`/api/notification/user/${userId}`, {
+      const response = await axiosInstance.get(`/api/user/notifications`, {
         withCredentials: true
       });
       if (response.data.success) {
@@ -130,7 +129,7 @@ const NotificationCenter = () => {
     );
     try {
       await axiosInstance.post(
-        `/api/notification/mark-read`,
+        `/api/user/notification/id/read`,
         { notificationId },
         { withCredentials: true }
       );
@@ -144,7 +143,7 @@ const NotificationCenter = () => {
     setNotifications((prev) => prev.filter((n) => n._id !== notificationId));
     try {
       await axiosInstance.post(
-        `/api/notification/delete`,
+        `/api/user/notification/delete`,
         { notificationId },
         { withCredentials: true }
       );
@@ -158,7 +157,7 @@ const NotificationCenter = () => {
     setNotifications((prev) => prev.map((notif) => ({ ...notif, isRead: true })));
     try {
       await axiosInstance.post(
-        `/api/notification/mark-all-read`,
+        `/api/user/notification/mark-all-read`,
         { userId },
         { withCredentials: true }
       );
@@ -171,7 +170,7 @@ const NotificationCenter = () => {
   const clearAllNotifications = async () => {
     setNotifications([]);
     try {
-      await axiosInstance.delete(`/api/notification/clear-all/${userId}`, {
+      await axiosInstance.delete(`/api/user/notification/clear-all/${userId}`, {
         withCredentials: true
       });
     } catch (error) {

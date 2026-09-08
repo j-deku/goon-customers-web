@@ -143,7 +143,7 @@ export default function MyBookings() {
                 xs={12}
                 sm={6}
                 md={4}
-                key={booking.id}
+                key={booking.id} 
               >
                 <BookingCard
                   booking={booking}

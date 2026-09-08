@@ -10,7 +10,7 @@ import {
   Chip,
   Divider,
   Stack,
-  IconButton,
+  IconButton, 
   Tooltip,
   Dialog,
   DialogTitle,
@@ -76,6 +76,18 @@ const STATUS_CONFIG = {
     label: "Partially Approved",
     color: "info",
     icon: <CheckCircle fontSize="small" />,
+  },
+ 
+  DRIVER_EN_ROUTE: {
+    label: "Driver On The Way",
+    color: "info",
+    icon: <DirectionsCar fontSize="small" />,
+  },
+ 
+  ARRIVED: {
+    label: "Driver Has Arrived",
+    color: "info",
+    icon: <LocationOn fontSize="small" />,
   },
 };
 
@@ -221,14 +233,31 @@ const rides = useMemo(
 
   /**
    * A booking is trackable when at least one ride
-   * is currently in progress.
+   * is currently in "DRIVER_EN_ROUTE", "ARRIVED", "IN_PROGRESS".
    */
-  const inProgress = useMemo(() => {
-    return rides.some(
-      (ride) =>
-        normalizeStatus(ride?.status) === "IN_PROGRESS"
-    );
-  }, [rides]);
+
+const TRACKABLE_RIDE_STATUSES = ["DRIVER_EN_ROUTE", "ARRIVED", "IN_PROGRESS"];
+  
+const inProgress = useMemo(() => {
+  return rides.some((ride) =>
+    TRACKABLE_RIDE_STATUSES.includes(normalizeStatus(ride?.status))
+  );
+}, [rides]);
+
+
+const trackingPhase = useMemo(() => {
+  const statuses = rides.map((r) => normalizeStatus(r?.status));
+  if (statuses.includes("IN_PROGRESS")) return "IN_PROGRESS";
+  if (statuses.includes("ARRIVED")) return "ARRIVED";
+  if (statuses.includes("DRIVER_EN_ROUTE")) return "DRIVER_EN_ROUTE";
+  return null;
+}, [rides]);
+ 
+const trackButtonLabel = {
+  DRIVER_EN_ROUTE: "Track Driver",
+  ARRIVED: "Driver Has Arrived",
+  IN_PROGRESS: "Track Ride",
+}[trackingPhase] || "Tracking Unavailable";
 
   /**
    * Total passengers across all rides.
@@ -687,7 +716,7 @@ const image = resolveImageUrl(
               }}
             >
               {inProgress
-                ? "Track Ride"
+                ? trackButtonLabel
                 : "Tracking Unavailable"}
             </Button>
 

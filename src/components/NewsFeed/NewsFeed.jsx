@@ -40,7 +40,7 @@ const NewsFeed = () => {
     }
     try {
       setLoading(true);
-      const res = await axiosInstance.get(`/api/notification/user/${userId}`, {
+      const res = await axiosInstance.get(`/api/user/notifications`, {
         withCredentials: true,
       });
       if (res.data.success) {
@@ -52,47 +52,75 @@ const NewsFeed = () => {
       setLoading(false);
     }
   }, [userId]);
-/*
-  useEffect(() => {
-    fetchNotifications();
-    
-    // Real-time socket listener
-    socket.on("rideResponseUpdate", (data) => {
-      if (data?.response && data?.ride) {
-        audioRef.current?.play().catch(() => {});
-        const newNotif = {
-          _id: data.notificationId || Date.now().toString(),
-          message:
-            data.response === "approved"
-              ? `🚗 Ride approved: ${data.ride.pickup} → ${data.ride.destination}`
-              : `❌ Ride declined: ${data.ride.pickup} → ${data.ride.destination}`,
-          createdAt: new Date().toISOString(),
-          isRead: false,
-        };
-        setNotifications((prev) => [newNotif, ...prev]);
-      }
-    });
 
-    return () => socket.off("rideResponseUpdate");
-  }, [fetchNotifications]);
-*/
   // Mark all read
-  const markAllRead = async () => {
-    setNotifications((prev) => prev.map((n) => ({ ...n, isRead: true })));
+const markAllRead = async () => {
+  try {
     await axiosInstance.post(
-      `/api/notification/mark-all-read`,
-      { userId },
-      { withCredentials: true }
+      "/api/user/notification/mark-all-read",
+      {},
+      {
+        withCredentials: true,
+      }
     );
-  };
+
+    setNotifications((prev) =>
+      prev.map((notification) => ({
+        ...notification,
+        isRead: true,
+      }))
+    );
+
+    toast.success("All notifications marked as read.");
+  } catch (error) {
+    toast.error("Failed to mark notifications as read.");
+    fetchNotifications();
+  }
+};
 
   // Clear all
-  const clearAll = async () => {
+const clearAll = async () => {
+  try {
+    await axiosInstance.delete(
+      "/api/user/notification/clear-all",
+      {
+        withCredentials: true,
+      }
+    );
+
     setNotifications([]);
-    await axiosInstance.delete(`/api/notification/clear-all/${userId}`, {
-      withCredentials: true,
-    });
-  };
+
+    toast.success("All notifications cleared.");
+  } catch (error) {
+    toast.error("Failed to clear notifications.");
+    fetchNotifications();
+  }
+};
+
+
+
+const markNotificationAsRead = async (notificationId) => {
+  try {
+    await axiosInstance.patch(
+      `/api/user/notifications/${notificationId}/read`,
+      {},
+      {
+        withCredentials: true,
+      }
+    );
+
+    setNotifications((prev) =>
+      prev.map((notification) =>
+        notification._id === notificationId ||
+        notification.id === notificationId
+          ? { ...notification, isRead: true }
+          : notification
+      )
+    );
+  } catch (error) {
+    toast.error("Failed to update notification.");
+  }
+};
 
   const unreadCount = notifications.filter((n) => !n.isRead).length;
 
@@ -145,18 +173,24 @@ const NewsFeed = () => {
               transition={{ delay: index * 0.05 }}
             >
               <Card
-                variant="outlined"
-                className={`feedCard ${notif.isRead ? "read" : "unread"}`}
-                sx={{
-                  mb: 2,
-                  borderRadius: 2,
-                  transition: "all 0.3s ease",
-                  "&:hover": {
-                    transform: "translateY(-4px)",
-                    boxShadow: 4,
-                  },
-                }}
-              >
+                  variant="outlined"
+                  onClick={() => {
+                    if (!notif.isRead) {
+                      markNotificationAsRead(notif.id || notif._id);
+                    }
+                  }}
+                  className={`feedCard ${notif.isRead ? "read" : "unread"}`}
+                  sx={{
+                    mb: 2,
+                    borderRadius: 2,
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
+                    "&:hover": {
+                      transform: "translateY(-4px)",
+                      boxShadow: 4,
+                    },
+                  }}
+                >
                 <CardContent>
                   <Typography variant="body1" sx={{ mb: 1 }}>
                     {notif.message}

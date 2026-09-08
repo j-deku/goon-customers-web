@@ -5,7 +5,7 @@
 
 /* FOOTER COLOR */
 :root{
-  --background-color: rgba(233, 245, 247, 0.5);
+  --background-color: rgba(233, 245, 247, 0.3);
 }
 
 .search-page {
@@ -1734,7 +1734,10 @@ top: 90%;
 bottom: 0;
 background-color:var(--background-color);
 font-family: 'Poppins', Arial;
-color: rgb(94, 93, 93);
+color: rgb(90, 89, 89);
+box-shadow: 0 0 100px rgba(255, 255, 255, 0.3);
+padding: 10px;
+border-radius: 10px;
 pointer-events: none;
 }
 
